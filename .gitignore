@@ -2,14 +2,11 @@
 *.tar
 *.tar.gz
 *.7z
-P13/data/*
-!P13/data/.gitkeep
-!P13/data/processed/
-P13/data/processed/*
-!P13/data/processed/.gitkeep
-
-!P12/.gitkeep
-!P13/.gitkeep
+data/*
+!data/.gitkeep
+!data/processed/
+data/processed/*
+!data/processed/.gitkeep
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
