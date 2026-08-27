@@ -1,0 +1,3 @@
+- download dataset from: https://www.kaggle.com/datasets/netflix-inc/netflix-prize-data
+- unzip it in folder data/
+- run preprocessing.ipynb and the data will be exported to data/processed/
