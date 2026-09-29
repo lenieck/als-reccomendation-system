@@ -8,6 +8,35 @@
 ## ALS Model and Evaluation
 I implemented the Alternating Least Squares (ALS) algorithm from scratch using NumPy and SciPy's sparse matrices. The script runs hyperparameter tuning across different latent features, iterations, and regularization terms, calculating MAE and RMSE for each combination. Finally, it uses Matplotlib to plot the error trends and help pick the best model.
 
+### ALS Algorithm Overview
+The ALS algorithm solves the optimization problem iteratively by alternating between updating user factors and item factors.
+
+**Optimization problem:**
+
+$$
+\min_{U,V} \sum_{(u,i) \in observed} (R_{ui} - U_u \cdot V_i^\top)^2 + \lambda(||U_u||^2 + ||V_i||^2)
+$$
+
+**1. Fix Item Factors and Optimize User Factors:**
+For each user (u), update (U) to minimize error for observed ratings while keeping (V) fixed:
+
+$$
+U_u = (V_u^\top V_u + \lambda I)^{-1} V_u^\top R_u
+$$
+
+**2. Fix User Factors and Optimize Item Factors:**
+For each item (i), update (V) to minimize error for observed ratings while keeping (U) fixed:
+
+$$
+V_i = (U_i^\top U_i + \lambda I)^{-1} U_i^\top R_i
+$$
+
+Finally, the predicted rating for user (u) and item (i) is calculated as:
+
+$$
+\hat{R}_{ui} = U_u \cdot V_i^\top
+$$
+
 ## Hyperparameter Tuning Results
 We tested different combinations of hyperparameters to evaluate model performance on the test set:
 * **Number of latent factors**: 20, 50, 100
